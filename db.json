@@ -1,0 +1,83 @@
+{
+  "enquiry": [
+    {
+      "firstName": "Thiru",
+      "lastName": "selvam",
+      "email": "thiru@gmail.com",
+      "mobile": 9876543210,
+      "weigth": 56,
+      "height": 1.3,
+      "bmi": "wd",
+      "bmiResults": "ewf",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Yearly",
+      "important": [
+        "Healthier Digestive system",
+        "Fitness"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-03-21T18:30:00.000Z",
+      "Address": [
+        {
+          "streetname": "stret",
+          "floorname": "dfthue"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "firstName": "raj",
+      "lastName": "dsfrf",
+      "email": "sdre@gamil.com",
+      "mobile": 8765432109,
+      "weigth": 24,
+      "height": 1.5,
+      "bmi": "dsf",
+      "bmiResults": "over",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "sugar Craving Body",
+        "Healthier Digestive system",
+        "Fitness"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-03-16T18:30:00.000Z",
+      "Address": [
+        {
+          "streetname": "dfghg",
+          "floorname": "REhw"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "firstName": "Gokul",
+      "lastName": "venkat",
+      "email": "gokul@gmail.com",
+      "mobile": 7653833299,
+      "weigth": 67,
+      "height": 1.4,
+      "bmi": "nbfe",
+      "bmiResults": "sdy",
+      "gender": "Male",
+      "requireTrainer": "Yes",
+      "package": "Yearly",
+      "important": [
+        "Energy and Endurance",
+        "Fitness"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2023-04-17T18:30:00.000Z",
+      "Address": [
+        {
+          "streetname": "sriv",
+          "floorname": "lioomo"
+        }
+      ],
+      "id": 4
+    }
+  ]
+}

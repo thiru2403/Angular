@@ -1,0 +1,174 @@
+<div class="logo text-center">
+  
+  <img width="300" src="https://tse4.mm.bing.net/th?id=OIP.xtdaF36nYTCDuKr-U5xBTQHaB2&pid=Api&P=0" alt="">
+
+</div>
+
+<div class="registration-form m-3 p-4">
+<form  [formGroup]="registerForm">
+<div class="row" >
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput placeholder="First Name" >
+            <!-- <div *ngIf="submitted && first['firstName'].errors" class="invalid-feedaback"></div> -->
+            <div *ngIf="inValid('firstName')"> FirstName is required</div>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field> 
+    </div>  
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput placeholder="Last Name">
+            <div *ngIf="inValid('lastName')"> LastName is required</div>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field> 
+    </div>
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email"matInput placeholder="Email">
+            <div *ngIf="inValid('email')"> Email is required</div>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field> 
+    </div>  
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input  type="number"  formControlName="mobile" matInput placeholder="Mobile">
+            <div *ngIf="inValid('mobile')"> Mobile is required</div>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field> 
+    </div>
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Weight</mat-label>
+            <input type="number" formControlName="weigth" matInput placeholder="Weight">
+            <div *ngIf="inValid('weigth')"> Weigth is required</div>
+            <mat-icon matSuffix>line_weight</mat-icon>
+            <mat-hint>Unit is KGs</mat-hint>
+       </mat-form-field> 
+    </div>  
+    <div class="col-md-6">
+        <mat-form-field appearance="outline">
+            <mat-label>Height</mat-label>
+            <input type="number" formControlName="height" matInput placeholder="height">
+            <div *ngIf="inValid('height')"> Height is required</div>
+            <mat-icon matSuffix><i class="fa fa-text-height" aria-hidden="true"></i></mat-icon>
+            <mat-hint>Unit is meters</mat-hint>
+       </mat-form-field> 
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+          <mat-label>BMI</mat-label>
+          <input formControlName="bmi" matInput placeholder="BMI">
+          <div *ngIf="inValid('bmi')"> BMI is required</div>
+          <mat-icon matSuffix><i class="fa fa-sort-numeric-desc" aria-hidden="true"></i></mat-icon>
+          
+     </mat-form-field> 
+  </div>
+  <div class="col-md-6">
+    <mat-form-field appearance="outline">
+        <mat-label>BMI</mat-label>
+        <input formControlName="bmiResults" matInput placeholder="BMIResult">
+        <div *ngIf="inValid('bmiResults')"> Bmi Result is required</div>
+        <mat-icon matSuffix><i class="fa fa-check" aria-hidden="true"></i></mat-icon>
+        
+   </mat-form-field> 
+</div>
+  <div  [formGroup]="registerForm" formArrayName="Address" *ngFor="let obj of getformArrayControls; let i = index">
+    <div class="d-flex justify-content-between col-md-12"  [formGroupName]="i">
+      <mat-form-field class="p-10" appearance="outline">
+          <mat-label>Street Name</mat-label>
+          <input   formControlName="streetname" matInput placeholder="Enter The Street Name">
+          <div *ngIf="inValid('streetname')"> Street is required</div>
+          <mat-icon matSuffix><i class="fa fa-check" aria-hidden="true"></i></mat-icon>
+          
+     </mat-form-field> 
+    
+    
+     
+      <mat-form-field class="p-10" appearance="outline">
+          <mat-label>Floor Name</mat-label>
+          <input  formControlName="floorname" matInput placeholder="Enter The Floor Name">
+          <div *ngIf="inValid('floorname')"> Floor is required</div>
+          <mat-icon matSuffix><i class="fa fa-check" aria-hidden="true"></i></mat-icon>
+          
+       </mat-form-field>
+      
+     </div>
+   
+  </div>  
+   
+    <div class="col-md-6 mt-3" [formGroup]="registerForm">
+    <label id="example-radio-group-label">Do you require trainer</label>
+     <mat-radio-group formControlName="requireTrainer"  class="example-radio-group">
+      <mat-radio-button  class="example-radio-button" *ngFor="let obj of traineeOpt" [value]="obj">
+    {{obj}}
+    <div *ngIf="inValid('requireTrainer')"> Required is required</div>
+  </mat-radio-button> 
+</mat-radio-group>
+<div>Selected option is:</div>
+    </div>
+    <div class="col-md-6 mt-3" >
+        <label id="example-radio-group-label">Gender</label>
+    <mat-radio-group formControlName="gender" class="example-radio-group">
+      <mat-radio-button   class="example-radio-button" *ngFor="let Gender of genders"   [value]="Gender">
+        {{Gender}}
+      </mat-radio-button> 
+    </mat-radio-group>
+    <div>Selected Gender is:</div>
+    </div>
+
+    <div class="col-md-6 mt-4">
+        <mat-form-field appearance="outline">
+            <mat-label>select Package</mat-label>
+            <mat-select  formControlName="package">
+              <mat-option   *ngFor="let package of packages" [value]="package">
+                {{package}}
+              </mat-option> 
+            </mat-select> 
+          </mat-form-field>
+    </div>
+
+    <div class="col-md-6 mt-4">
+      <mat-form-field appearance="outline">
+          <mat-label>Which of the following is important to you?</mat-label>
+          <mat-select multiple formControlName="important">
+            <mat-option   *ngFor="let importantLists of importantList" [value]="importantLists">
+              {{importantLists}}
+            </mat-option> 
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="col-md-6 ">
+      <label id="example-radio-group-label">Have been Gym before?</label>
+  <mat-radio-group formControlName="haveGymBefore" class="example-radio-group">
+    <mat-radio-button  class="example-radio-button" *ngFor="let beenGym of ['Yes','No']" [value]="beenGym">
+      {{beenGym}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <div>Selected Option is:</div>
+  </div>
+    
+  <div class="col-md-6 col-sm-12">
+    <mat-form-field appearance="outline">
+      <mat-label>Enquiry date</mat-label>
+      <input formControlName="enquiryDate" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="col-md-6 mt-3">
+    <button *ngIf="!isUpdateActive" mat-raised-button color="primary" [disabled]="this.registerForm.invalid" (click)="saveAll()" >Sumbit</button>
+    <button *ngIf="isUpdateActive" mat-raised-button color="primary"  (click)="update()" >Update</button>
+  </div>
+  
+</div>
+
+</form>
+
+</div>

@@ -1,0 +1,94 @@
+
+<div>
+ 
+    <mat-icon [routerLink]="['/register']" aria-hidden="false" aria-label="Example arrow_back" fontIcon="arrow_back"></mat-icon>
+
+
+ <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+
+     <!-- Id Column -->
+     <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+
+    <!-- FirstName Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> FirstName </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+  
+    <!-- LastName Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> LastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+  
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Moible Column -->
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef> Moible </th>
+      <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+    </ng-container>
+
+     <!-- BmiResult Column -->
+     <ng-container matColumnDef="bmiResults">
+        <th mat-header-cell *matHeaderCellDef> BmiResult </th>
+        <td mat-cell *matCellDef="let element"> {{element.bmiResults}} </td>
+      </ng-container>
+
+     <!-- Gender Column -->
+     <ng-container matColumnDef="gender">
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+      </ng-container>
+  
+
+    <!-- Package Column -->
+    <ng-container matColumnDef="package">
+        <th mat-header-cell *matHeaderCellDef> Package </th>
+        <td mat-cell *matCellDef="let element"> {{element.package}} </td>
+      </ng-container>
+
+     <!-- Enquirydate Column -->
+    <ng-container matColumnDef="enquiryDate">
+        <th mat-header-cell *matHeaderCellDef> EnquiryDate </th>
+        <td mat-cell *matCellDef="let element"> {{element.enquiryDate|date}} </td>
+      </ng-container>
+
+     <!-- Action Column -->
+     <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button [routerLink]="['/detail',element.id]" mat-icon-button color="primary"><i class="fa fa-eye"></i></button>
+            <button (click)="edit(element.id)" mat-icon-button color="secondary"><i class="fa fa-pencil"></i></button>
+            <button (click)="delete(element.i)" mat-icon-button color="warn"><i class="fa fa-trash"></i></button>
+        </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+
+
+  <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100,200]" aria-label="Select page">
+</mat-paginator>
+
+</div>
